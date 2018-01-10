@@ -5,12 +5,18 @@ const port = 5000;
 
 // INDEX
 app.get('/pokemon', (req, res) => {
-    res.render('index.ejs', { data: pokemon });
+    res.render('index.ejs', {
+        pokemon: pokemon
+    });
 });
 
 // SHOW
 app.get('/pokemon/:id', (req, res) => {
-    res.render('show.ejs', { data: pokemon[req.params.id] });
+    res.render('show.ejs', {
+        pokemon: pokemon[req.params.id]
+    });
+
+    res.redirect('/pokemon')
 });
 
 //Listen
