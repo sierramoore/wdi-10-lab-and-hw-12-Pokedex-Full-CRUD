@@ -2,24 +2,64 @@
 <html>
 <head>
     <title>Pokemons List</title>
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Joti+One" rel="stylesheet">
+
+    <style>
+        body {
+            color: blanchedalmond;
+            background-color: steelblue;
+            font-family: 'Joti One', cursive;
+            text-align: center;
+        }
+        img{
+            border-radius: 20px;
+            border: groove orange;
+        }
+        a{
+            color: orange;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        a:hover{
+            color: #ff6023;
+            font-size: 25px;
+        }
+        li{
+            list-style-type: none;
+        }
+        div{
+            display: flex;
+            justify-content: space-around;
+        }
+        button{
+            color:red;
+        }
+    </style>
 </head>
+
 <body>
-<h1>Pokemons List</h1>
+<h1>-=| Pokemons List |=-</h1>
 
 <a href="/pokemon/add">Add A Pokemon</a>
-
-
 
 <br>
 
 <ul class=pokemon>
-    <% for(let i=0; i < pokemon.length; i++){ %>
-    <a href="/pokemon/<%= i %>"><img src="<%=pokemon[i].img %>"></a>
+    <% for(let i = 0; i < pokemon.length; i++){ %>
+    <div>
+        <a href="/pokemon/<%= i %>/edit">Edit</a>
 
-    <a href="/pokemon/<%= i %>/edit">(edit)</a>
+        <form action="/pokemon/<%= i %>/?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+
+    <a href="/pokemon/<%= i %>"><img src="<%= pokemon[i].img %>"></a>
+
     <% } %>
 </ul>
-
 
 
 </body>

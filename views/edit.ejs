@@ -4,13 +4,14 @@
     <title></title>
 </head>
 <body>
-<a href="/pokemon"></a>
+<a href="/pokemon">Back to All Pokemons</a>
 
 <h1>Edit <%=pokemon.name %></h1>
 
 <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
 
     NAME: <input type="text" name="name" value="<%=pokemon.name; %>"><br>
+    IMG-SRC: <input type="text" name="name" value="<%=pokemon.img; %>"><br>
 
     <input type="submit" name="" value="Update Pokemon">
 

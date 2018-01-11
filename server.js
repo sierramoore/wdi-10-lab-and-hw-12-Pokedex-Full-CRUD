@@ -3,10 +3,15 @@ const app = express();
 const pokemon= require('./models/pokemon.js');
 const port = 5000;
 
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
+
+app.use(methodOverride('_method'));
+
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 // INDEX
 app.get('/pokemon', (req, res) => {
@@ -24,10 +29,10 @@ app.get('/pokemon/:id', (req, res) => {
     res.redirect('/pokemon')
 });
 
-// TODO make add work
+// TODO make new work
 //Route to form to add another pokemon
-// app.get('/pokemon/add', (req, res) =>{
-//     res.render('add.ejs');
+// app.get('/pokemon/new', (req, res) =>{
+//     res.render('new.ejs');
 // });
 // TODO make a post route to handle newly added pokemon
 // app.post('/pokemon', (req, res) => {
@@ -50,9 +55,17 @@ app.get('/pokemon/:index/edit', (req, res) => {
 app.put('pokemon/:index', (req, res) => {
     console.log("hey update route was hit");
     // replace the pokemon in arr with the updated one
+
     pokemon[req.params.index] = {
         name: req.body.name
     };
+    res.redirect('/pokemon');
+});
+
+
+app.delete('/:index', (req, res) => {
+
+    pokemon.splice(req.params.index, 1);
 
     res.redirect('/pokemon');
 });
