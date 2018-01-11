@@ -5,10 +5,22 @@
 </head>
 <body>
 <h1>Pokemons List</h1>
+
+<a href="/pokemon/add">Add A Pokemon</a>
+
+
+
+<br>
+
 <ul class=pokemon>
     <% for(let i=0; i < pokemon.length; i++){ %>
-    <a href="/pokemon/<%= i %> "><img src="<%=pokemon[i].img %>"></a>
+    <a href="/pokemon/<%= i %>"><img src="<%=pokemon[i].img %>"></a>
+
+    <a href="/pokemon/<%= i %>/edit">(edit)</a>
     <% } %>
 </ul>
+
+
+
 </body>
 </html>
