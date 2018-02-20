@@ -17,7 +17,7 @@
             border-radius: 20px;
             border: groove orange;
         }
-        a{
+        a, h3{
             color: orange;
             text-decoration: none;
             font-size: 24px;
@@ -48,9 +48,10 @@
 
 <ul class=pokemon>
     <% for(let i = 0; i < pokemon.length; i++){ %>
+    <% console.log(i, pokemon[i].id) %>
     <div>
         <a href="/pokemon/<%= i %>/edit">Edit</a>
-
+        <h3><%= pokemon[i].name %></h3>
         <form action="/pokemon/<%= i %>/?_method=DELETE" method="POST">
             <button type="submit">Delete</button>
         </form>
