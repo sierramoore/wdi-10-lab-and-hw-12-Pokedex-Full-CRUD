@@ -9,6 +9,10 @@ router.get('/', (req, res) => {
     });
 });
 
+// new route
+router.get('/new', (req, res) => {
+    res.render('new.ejs')
+});
 
 // SHOW EACH
 router.get('/:id', (req, res) => {
@@ -20,19 +24,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-// new route
-router.get('/new', (req, res) => {
-    res.render('new.ejs')
-});
 
-// TODO make new work
-router.get('/new', (req, res) => {
-    res.render('new.ejs');
-});
-
-router.post('/', (req, res) => {
-
-});
 
 //Route to edit page
 router.get('/:id/edit', (req, res) => {
@@ -46,14 +38,16 @@ router.get('/:id/edit', (req, res) => {
 //Replace edited pokemon in arr
 router.put('/:id', (req, res) => {
     // console.log("hey update route was hit");
-    pokemon.push(req.body)
+    pokemon.push(req.body);
     res.redirect('/pokemon')
 
 });
 
 
 router.delete('/:id', (req, res) => {
-    pokemon.splice(req.params.id, 1);
+    const idx = req.params.index;
+    pokemon.splice(idx, 1);
+    
     res.redirect('/pokemon');
 });
 
