@@ -39,11 +39,12 @@ router.get('/:id/edit', (req, res) => {
 
 //Replace edited pokemon in arr
 router.put('/:index', (req, res) => {
-
+    console.log(req.body.name, req.body.img);
     pokemon[req.params.index] = {
         name: req.body.name,
-        img: req.body.img,
+        img: req.body.img
     };
+
     res.redirect('/pokemon')
 
 });
