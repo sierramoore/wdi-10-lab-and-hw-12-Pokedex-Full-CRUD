@@ -42,13 +42,13 @@
 <body>
 <h1>-=| Pokemons List |=-</h1>
 
-<a href="/pokemon/add">Add A Pokemon</a>
+<a href="/pokemon/new">Add A Pokemon</a>
 
 <br>
 
 <ul class=pokemon>
     <% for(let i = 0; i < pokemon.length; i++){ %>
-    <% console.log(i, pokemon[i].id) %>
+
     <div>
         <a href="/pokemon/<%= i %>/edit">Edit</a>
         <h3><%= pokemon[i].name %></h3>
